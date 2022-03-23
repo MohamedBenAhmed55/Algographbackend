@@ -17,7 +17,7 @@ class InfoController extends AbstractController
     /**
      * @Route("/api/info", name="app_info", methods={"GET"})
      */
-    public function index(EntityManagerInterface $em, $id): JsonResponse
+    public function index(EntityManagerInterface $em): JsonResponse
     {
         $users = $em->getRepository(User::class)->findBy([]);
         $Data = array();
