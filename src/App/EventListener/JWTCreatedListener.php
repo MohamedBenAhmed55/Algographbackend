@@ -49,7 +49,8 @@ class JWTCreatedListener
 
         /** @var $user \App\Entity\User */
         $user = $this->em->getRepository(User::class)->findOneby(['username' => $payload['username']]);       
-        $payload['UserId'] = $user->getId();;
+        $payload['UserId'] = $user->getId();
+        $payload['score'] = $user->getScore();;
         $event->setData($payload);
         $header = $event->getHeader();
         $event->setHeader($header);
